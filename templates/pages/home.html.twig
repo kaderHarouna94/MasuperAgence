@@ -1,0 +1,28 @@
+{% extends  'base.html.twig' %}
+
+{% block title 'Agence AKHM Niger' %}
+{% block body %}
+    <div class="jumbotron jumbotron-fluid  text-center">
+    <h1>Agence AKHM Niger</h1>
+        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    </div>
+
+    <div class="container">
+        <div class="row flex">
+            {% for property in properties %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-text">{{ property.city }} ({{ property.postalCode }})</p>
+                            <div class="text-primary" style="font-weight: bold;font-size: 2em;">{{ property.formattedPrice }} FCFA</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
